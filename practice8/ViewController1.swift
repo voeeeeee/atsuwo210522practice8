@@ -9,36 +9,42 @@ import UIKit
 
 class ViewController1: UIViewController {
 
-    @IBOutlet weak var label1: UILabel!
-    @IBOutlet  private weak var slider1: UISlider!
+    @IBOutlet private weak var label: UILabel!
+    @IBOutlet private weak var slider: UISlider!
+
+    let appdelegate = UIApplication.shared.delegate as! AppDelegate
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSlider()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        label.text = appdelegate.initialValue
+        slider.value = Float(String(label.text!))!
+    }
+    
     func setupSlider () {
-        slider1.minimumValue = 0
-        slider1.maximumValue = 1
-        slider1.value = 0
+        slider.minimumValue = 0
+        slider.maximumValue = 1
+        slider.value = 0
     }
 
     @IBAction func slider1Action(_ sender: Any) {
-        label1.text = String(Double(slider1.value))
-        /* ここでの私のイメージでは、viewControllerをインスタンス化して
-         そのラベル内の値を持ってこれば良いだけだと思い下記方法を試しました。
-         ですが、label2にnilが入っていると出てしまう。
-         この箇所がよばれる前に初期値を入れようと
-
-         let vc2 = ViewController2()
-         vc2.label2.text = "0.0"
-
-         上記コードをAppDelegateへ記載しても
-         nilが入っていることになり、クラッシュしてしまう。。。
-         対応策を調べましたが、解決方法を見つけれなかったためこのままPRさせてください。。。
-         */
-        let vc2 = ViewController2()
-        vc2.label2.text = self.label1.text
+        label.text = String(Float(slider.value))
+        appdelegate.initialValue = label.text!
     }
 }
 
+/* 質問です。
+今回、一番初めに思いついた方法が、let vc2 = ViewController2() とインスタンス化し、
+ sliderActionの中で、
+ vc2.label2.text = label1.text
+ という設定方法が思いつきましたが、
+ 実際作成してみると、label2がnilという警告が出てきました。
+ 呼び出されるタイミングが悪いためかと思い、もっと早くよばれるAppDelegateへ
+ label2の初期値を入力しても、label2はnilの警告が出てきました。
+ なぜnilではないはずなのに、nilとなってしまうのかがわかっていません。
+ 一つ前のpushにコードを記載していますので、ご確認頂きたく、宜しくお願い致します。
+*/

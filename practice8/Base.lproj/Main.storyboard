@@ -42,8 +42,8 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="dvB-ix-qlL"/>
                     <connections>
-                        <outlet property="label2" destination="c5l-FJ-Iri" id="HoS-6R-Hv3"/>
-                        <outlet property="slider2" destination="SEa-2C-aH6" id="kGb-ya-Qgw"/>
+                        <outlet property="label" destination="c5l-FJ-Iri" id="HoS-6R-Hv3"/>
+                        <outlet property="slider" destination="SEa-2C-aH6" id="kGb-ya-Qgw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NxN-XQ-UIa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -84,18 +84,18 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="lm7-dS-UvL"/>
                     <connections>
-                        <outlet property="label1" destination="Smk-2i-Tl6" id="Y3a-yk-vOp"/>
-                        <outlet property="slider1" destination="DCA-rJ-dAZ" id="O9q-XY-wkf"/>
+                        <outlet property="label" destination="Smk-2i-Tl6" id="Y3a-yk-vOp"/>
+                        <outlet property="slider" destination="DCA-rJ-dAZ" id="O9q-XY-wkf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pFg-Wh-64J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2.8985507246376816" y="-449.33035714285711"/>
         </scene>
-        <!--Base Tab Bar Controller-->
+        <!--Tab Bar Controller-->
         <scene sceneID="tfA-9H-EOm">
             <objects>
-                <tabBarController id="hRC-NI-XIG" customClass="BaseTabBarController" customModule="practice8" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="hRC-NI-XIG" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4y1-zQ-5Zf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

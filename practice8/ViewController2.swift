@@ -9,19 +9,30 @@ import UIKit
 
 class ViewController2: UIViewController {
 
-    @IBOutlet weak var label: UILabel!
+    @IBOutlet private weak var label: UILabel!
     @IBOutlet private weak var slider: UISlider!
 
-    var appdelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupSlider()
+    }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        label.text = appdelegate.initialValue
-        slider.value = Float(String(label.text!))!
+        label.text = String(appDelegate.sliderValue)
+        slider.value = appDelegate.sliderValue
     }
     
+    func setupSlider () {
+        slider.minimumValue = 0
+        slider.maximumValue = 1
+        slider.value = appDelegate.sliderValue
+    }
+
     @IBAction func slider2Action(_ sender: Any) {
-        label.text = String(Float(slider.value))
-        appdelegate.initialValue = label.text!
+        label.text = String(slider.value)
+        appDelegate.sliderValue = slider.value
     }
 }
